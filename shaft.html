@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaft | Mshengu Hanson</title>
+  <link href="images/logoo.png" rel="icon">
+  <link rel="stylesheet" href="css/styles.css" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+<body>
+
+<!-- Top slim bar with logo -->
+<div class="top-bar">
+  <a href="index.html" class="logo">
+    <img src="images/logo.png" alt="Mshengu Hanson Logo" />
+  </a>
+  <div class="marquee-container">
+    <p class="marquee-text">We engineer what others only imagine | We engineer what others only imagine | We engineer what others only imagine</p>
+  </div>
+</div>
+
+<header>
+    <nav>
+        <button class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html" class = "active">Projects</a></li>
+        </ul>
+        <a href="contact.html" class="contact-button">Contact Us</a>
+    </nav>
+</header>
+
+<main>
+
+
+<section class="shaft-showcase">
+  <h2>Shaft Systems</h2>
+  <p>Explore our custom shaft fabrication projects, designed to meet the rigorous demands of mechanical infrastructure.</p>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="images/SHAFT1.jpg" alt="Shaft Project 1"></div>
+      <div class="swiper-slide"><img src="images/SHAFT2.jpg" alt="Shaft Project 2"></div>
+      <div class="swiper-slide"><img src="images/SHAFT3.jpg" alt="Shaft Project 3"></div>
+      <div class="swiper-slide"><img src="images/SHAFT4.jpg" alt="Shaft Project 4"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+<br>
+
+</main>
+
+<footer>
+  <div class="footer-columns">
+    <div>
+      <h4>Office Address</h4>
+      <p>
+        Office 23 Corridor Hill,<br>
+        9 Langa Crescent,<br>
+        Emalahleni, Mpumalanga, 1864
+      </p>
+    </div>
+    <div>
+      <h4>Contact Details</h4>
+      <p>
+        <strong>Tel:</strong> 082 857 5765 / 069 871 6461<br>
+        <strong>Email:</strong> info@mshengu-hanson.co.za<br>
+        admin@mshengu-hanson.co.za
+      </p>
+    </div>
+    <div>
+      <h4>Certificates</h4>
+      <p>
+        <a href="docs/SHEQ National Cert Certificate EMS.pdf" target="_blank">SHEQ National Cert Certificate EMS (View)</a><br>
+        <a href="docs/ISO 9001 CERTIFICATE.pdf" target="_blank">ISO 9001 Certificate (View)</a><br>
+        <a href="docs/Mshengu Hanson Profile Updated Profile.pdf" target="_blank">Mshengu Hanson Profile (View)</a>
+      </p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <p>
+        <a href="index.html" target="_blank">Home</a><br>
+        <a href="about.html" target="_blank">About</a><br>
+        <a href="services.html" target="_blank">Services</a><br>
+        <a href="projects.html" target="_blank">Projects</a><br>
+        <a href="contact.html" target="_blank">Contact Us</a>
+      </p>
+    </div>
+  </div>
+  <p class="copyright">
+    &copy; 2025 Mshengu Hanson Engineering and Projects (Pty) Ltd |
+    Website Developed & Managed by 
+    <a href="https://tawheeda.github.io/tawheedaa" target="_blank">LT Dev Studio</a> 
+    in collaboration with InfoTech Managed Solutions (Pty) Ltd.
+  </p>
+</footer>
+<script src="js/script.js"></script>
+<script>
+function toggleMenu() {
+  const nav = document.getElementById('nav-menu');
+  nav.classList.toggle('active');
+}
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".swiper", {
+      loop: true,
+      grabCursor: true,
+      spaceBetween: 20,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+</html>
