@@ -1,63 +1,49 @@
-let slideIndex = 1; // Global index for slideshow
-
 document.addEventListener("DOMContentLoaded", () => {
-  // === Mobile Menu Toggle ===
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
   if (menuToggle && navLinks) {
-    // Default ARIA
+    // Ensure id + aria-controls
+    if (!navLinks.id) navLinks.id = "primary-nav";
+    menuToggle.setAttribute("aria-controls", navLinks.id);
+
     if (!menuToggle.hasAttribute("aria-expanded")) {
       menuToggle.setAttribute("aria-expanded", "false");
     }
 
-    // Toggle menu on click
+    const closeMenu = () => {
+      navLinks.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+    };
+
+    const openMenu = () => {
+      navLinks.classList.add("active");
+      menuToggle.setAttribute("aria-expanded", "true");
+    };
+
     menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      expanded ? closeMenu() : openMenu();
     });
 
-    // Close menu when a nav link is clicked (mobile UX)
+    // Close menu when a link is clicked (mobile UX)
     navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
+      link.addEventListener("click", closeMenu);
     });
-  }
 
-  // === Initialize Slideshow ===
-  const slides = document.getElementsByClassName("slide");
-  if (slides.length > 0) {
-    showSlides(slideIndex);
+    // Close on ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    // Close on outside click
+    document.addEventListener("click", (e) => {
+      const isOpen = navLinks.classList.contains("active");
+      if (!isOpen) return;
+
+      const clickedInsideNav = navLinks.contains(e.target);
+      const clickedToggle = menuToggle.contains(e.target);
+      if (!clickedInsideNav && !clickedToggle) closeMenu();
+    });
   }
 });
-
-/**
- * Increment or decrement slide index
- * @param {number} n
- */
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-/**
- * Show the current slide, hide others
- * @param {number} n
- */
-function showSlides(n) {
-  const slides = document.getElementsByClassName("slide");
-  if (slides.length === 0) return;
-
-  if (n > slides.length) slideIndex = 1;
-  if (n < 1) slideIndex = slides.length;
-
-  // Hide all slides
-  Array.from(slides).forEach(slide => {
-    slide.style.display = "none";
-  });
-
-  // Show the current slide
-  slides[slideIndex - 1].style.display = "block";
-}
